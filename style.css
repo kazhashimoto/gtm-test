@@ -1,8 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 
 body {
   font-family: sans-serif;
+}
+
+.links {
+  margin-bottom: 50px;
+}
+section {
+  min-height: 100vh;
 }
