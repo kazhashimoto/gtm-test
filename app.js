@@ -1,7 +1,9 @@
 
 document.querySelectorAll('a[href^="#"]').forEach(e => {
   e.addEventListener('click', (evt) => {
-    evt.preventDefault();
+    if (disableDefault()) {
+      evt.preventDefault();
+    }
     const id = evt.target.getAttribute('href').replace(/^#/, '');
     const el = document.getElementById(id);
     const top = el.getBoundingClientRect().top + window.pageYOffset;
@@ -11,3 +13,9 @@ document.querySelectorAll('a[href^="#"]').forEach(e => {
     });
   })
 });
+
+function disableDefault() {
+  const item = document.getElementById('cb1');
+  console.log('checked', item.checked);
+  return item.checked;
+}
