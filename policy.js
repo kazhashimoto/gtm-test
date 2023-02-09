@@ -24,11 +24,13 @@ gtag('policy', 'all', function(container, policy, data) {
   // operate without restrictions on permissions.
   if (container != 'GTM-5JKR7FS') return true;
 
+  console.log('gtag policy', policy);
   // Since the policy is 'all', adjust permissions conditionally.
   switch (policy) {
 
     case 'send_pixel':
       // return true;
+      console.log(policy, false);
       return false; // TEST
 
     case 'write_globals':
