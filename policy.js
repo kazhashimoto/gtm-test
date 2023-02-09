@@ -3,9 +3,7 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
-function XXgtag() {}
-
-XXgtag('policy', 'inject_script', function(container, policy, data) {
+gtag('policy', 'inject_script', function(container, policy, data) {
   console.log('gtag inject_script');
   return false;
 
