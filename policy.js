@@ -3,7 +3,9 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
-gtag('policy', 'inject_script', function(container, policy, data) {
+function XXgtag() {}
+
+XXgtag('policy', 'inject_script', function(container, policy, data) {
   console.log('gtag inject_script');
 
   // reference the url of the script to be injected
@@ -38,6 +40,7 @@ gtag('policy', 'all', function(container, policy, data) {
       return data.key && data.key == '_gaq';
 
     case 'inject_script':
+      console.log(policy, false);
       return false; // TEST
       // let url = data.url || '';
       // if (url.indexOf('https://kazhashimoto.github.io/') != 0)
