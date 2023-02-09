@@ -38,9 +38,10 @@ gtag('policy', 'all', function(container, policy, data) {
       return data.key && data.key == '_gaq';
 
     case 'inject_script':
-      let url = data.url || '';
-      if (url.indexOf('https://kazhashimoto.github.io/') != 0)
-        throw 'Only kazhashimoto.github.io scripts are permitted';
+      return false; // TEST
+      // let url = data.url || '';
+      // if (url.indexOf('https://kazhashimoto.github.io/') != 0)
+      //   throw 'Only kazhashimoto.github.io scripts are permitted';
     case 'logging':
       console.log(policy, true);
       return true;
