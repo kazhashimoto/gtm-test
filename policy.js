@@ -28,7 +28,8 @@ gtag('policy', 'all', function(container, policy, data) {
   switch (policy) {
 
     case 'send_pixel':
-      return true;
+      // return true;
+      return false; // TEST
 
     case 'write_globals':
       return data.key && data.key == '_gaq';
