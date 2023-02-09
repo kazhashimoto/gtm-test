@@ -5,6 +5,7 @@ function gtag(){dataLayer.push(arguments);}
 
 gtag('policy', 'inject_script', function(container, policy, data) {
   console.log('gtag inject_script');
+  return false;
 
   // reference the url of the script to be injected
   let url = data.url || '';
@@ -38,11 +39,11 @@ gtag('policy', 'all', function(container, policy, data) {
       return data.key && data.key == '_gaq';
 
     case 'inject_script':
-      console.log(policy, false);
+      console.log(policy, true);
       let url = data.url || '';
       if (url.indexOf('https://kazhashimoto.github.io/') != 0)
         throw 'Only kazhashimoto.github.io scripts are permitted';
-      return false;
+      return true;
     case 'logging':
       console.log(policy, true);
       return true;
