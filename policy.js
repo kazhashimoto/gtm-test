@@ -5,7 +5,6 @@ function gtag(){dataLayer.push(arguments);}
 
 gtag('policy', 'inject_script', function(container, policy, data) {
   console.log('gtag inject_script');
-  return false;
 
   // reference the url of the script to be injected
   let url = data.url || '';
