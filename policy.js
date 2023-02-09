@@ -40,7 +40,9 @@ gtag('policy', 'all', function(container, policy, data) {
       let url = data.url || '';
       if (url.indexOf('https://example.com') != 0)
         throw 'Only example.com scripts are permitted';
-
+    case 'logging':
+      console.log(policy, true);
+      return true;
     default:
       // IT staff decides that all unknown permissions
       // are rejected.
