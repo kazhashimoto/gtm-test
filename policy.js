@@ -1,3 +1,5 @@
+// https://developers.google.com/tag-manager/templates/policies?hl=ja
+
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
@@ -12,5 +14,33 @@ gtag('policy', 'inject_script', function(container, policy, data) {
     return true;
   } else {
     throw 'Only permitted to inject https://scripts.example.com/analytics.js';
+  }
+});
+
+gtag('policy', 'all', function(container, policy, data) {
+
+  // Only set policy for 1 specific container.
+  // This enables other containers loaded on the page to
+  // operate without restrictions on permissions.
+  if (container != 'GTM-5JKR7FS') return true;
+
+  // Since the policy is 'all', adjust permissions conditionally.
+  switch (policy) {
+
+    case 'send_pixel':
+      return true;
+
+    case 'write_globals':
+      return data.key && data.key == '_gaq';
+
+    case 'inject_script':
+      let url = data.url || '';
+      if (url.indexOf('https://example.com') != 0)
+        throw 'Only example.com scripts are permitted';
+
+    default:
+      // IT staff decides that all unknown permissions
+      // are rejected.
+      return false;
   }
 });
