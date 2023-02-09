@@ -1,7 +1,7 @@
 // https://developers.google.com/tag-manager/templates/policies?hl=ja
 
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+function XXXgtag(){dataLayer.push(arguments);} // test
 
 gtag('policy', 'inject_script', function(container, policy, data) {
 
@@ -46,6 +46,7 @@ gtag('policy', 'all', function(container, policy, data) {
     default:
       // IT staff decides that all unknown permissions
       // are rejected.
-      return false;
+      // return false;
+      return true;  // test
   }
 });
