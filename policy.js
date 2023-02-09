@@ -1,7 +1,7 @@
 // https://developers.google.com/tag-manager/templates/policies?hl=ja
 
 window.dataLayer = window.dataLayer || [];
-function XXXgtag(){dataLayer.push(arguments);} // test
+function gtag(){dataLayer.push(arguments);}
 
 gtag('policy', 'inject_script', function(container, policy, data) {
 
