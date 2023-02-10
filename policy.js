@@ -1,3 +1,21 @@
+const policies = new Map();
+policies.set('send_pixel', true)
+  .set('write_globals', true)
+  .set('inject_script', true)
+  .set('logging', true)
+  .set('unknown', false);
+
+(function() {
+  const params = new URL(document.location).searchParams;
+  for (const key of policies.keys()) {
+    console.log(key, policies.get(key), params.get(key));
+    let val = params.get(key);
+    if (val) {
+      policies.set(key, val == 'true');
+    }
+  }
+})();
+
 // https://developers.google.com/tag-manager/templates/policies?hl=ja
 
 window.dataLayer = window.dataLayer || [];
@@ -25,31 +43,32 @@ gtag('policy', 'all', function(container, policy, data) {
   // operate without restrictions on permissions.
   if (container != 'GTM-5JKR7FS') return true;
 
-  console.log('gtag policy', policy);
+  let val = false;
+  if (policies.has(policy)) {
+    val = policies.get(policy);
+  }
+  console.log('gtag policy', policy, val);
   // Since the policy is 'all', adjust permissions conditionally.
   switch (policy) {
 
     case 'send_pixel':
-      // return true;
-      console.log(policy, false);
-      return false; // TEST
+      return val;
 
     case 'write_globals':
-      return data.key && data.key == '_gaq';
+      // return data.key && data.key == '_gaq';
+      return val && data.key && data.key == '_gaq';
 
     case 'inject_script':
-      console.log(policy, true);
       let url = data.url || '';
       if (url.indexOf('https://kazhashimoto.github.io/') != 0)
         throw 'Only kazhashimoto.github.io scripts are permitted';
-      return true;
+      return val;
     case 'logging':
-      console.log(policy, true);
-      return true;
+      return val;
     default:
       // IT staff decides that all unknown permissions
       // are rejected.
       // return false;
-      return true;  // test
+      return val;
   }
 });
