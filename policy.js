@@ -37,7 +37,12 @@ gtag('policy', 'inject_script', function(container, policy, data) {
 
   // if the url of the injected script exactly matches, allow it.
   // otherwise throw an error
-  if (url === 'https://kazhashimoto.github.io/gtm-test/callback.js') {
+  const allow = [
+    'https://kazhashimoto.github.io/gtm-test/callback.js',
+    'https://kazhashimoto.github.io/gtm-test/consent.js'
+  ];
+
+  if (allow.includes(url)) {
     return true;
   } else {
     throw 'Only permitted to inject https://kazhashimoto.github.io/gtm-test/callback.js';
