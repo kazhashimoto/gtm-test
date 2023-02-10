@@ -1,25 +1,33 @@
+// Adapted from
+// https://developers.google.com/tag-manager/templates/policies?hl=ja
+
+window.dataLayer = window.dataLayer || [];
+let gtag = function() {dataLayer.push(arguments);}
+
 const policies = new Map();
 policies.set('send_pixel', true)
   .set('write_globals', true)
   .set('inject_script', true)
   .set('logging', true)
+  .set('access_globals', true)
+  .set('read_event_metadata', true)
   .set('unknown', false);
 
 (function() {
+  let val;
   const params = new URL(document.location).searchParams;
   for (const key of policies.keys()) {
     console.log(key, policies.get(key), params.get(key));
-    let val = params.get(key);
+    val = params.get(key);
     if (val) {
       policies.set(key, val == 'true');
     }
   }
+  val = params.get('check_policy');
+  if (val && val == 'false') {
+    gtag = function() {};
+  }
 })();
-
-// https://developers.google.com/tag-manager/templates/policies?hl=ja
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
 
 gtag('policy', 'inject_script', function(container, policy, data) {
   console.log('gtag inject_script');
@@ -55,7 +63,6 @@ gtag('policy', 'all', function(container, policy, data) {
       return val;
 
     case 'write_globals':
-      // return data.key && data.key == '_gaq';
       return val && data.key && data.key == '_gaq';
 
     case 'inject_script':
