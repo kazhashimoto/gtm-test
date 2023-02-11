@@ -10,6 +10,7 @@ policies.set('send_pixel', true)
   .set('inject_script', true)
   .set('logging', true)
   .set('access_globals', true)
+  ..set('access_consent', true)
   .set('read_event_metadata', true)
   .set('unknown', false);
 
