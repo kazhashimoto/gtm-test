@@ -42,7 +42,7 @@ gtag('policy', 'inject_script', function(container, policy, data) {
   // otherwise throw an error
   const allow = [
     'https://kazhashimoto.github.io/gtm-test/callback.js',
-    'https://kazhashimoto.github.io/gtm-test/consent.js'
+    'https://kazhashimoto.github.io/gtm-test/banner.js'
   ];
 
   if (allow.includes(url)) {
