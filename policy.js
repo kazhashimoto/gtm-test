@@ -14,7 +14,7 @@ policies.set('send_pixel', true)
   .set('read_event_metadata', true)
   .set('write_data_layer', true)
   .set('get_cookies', true)
-  .set('unknown', true);  // for consent tags
+  .set('unknown', false);
 
 (function() {
   let val;
