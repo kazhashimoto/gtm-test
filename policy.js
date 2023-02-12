@@ -13,7 +13,7 @@ policies.set('send_pixel', true)
   .set('access_consent', true)
   .set('read_event_metadata', true)
   .set('write_data_layer', true)
-  .set('unknown', false);
+  .set('unknown', true);  // for consent tags
 
 (function() {
   let val;
