@@ -3,7 +3,7 @@
   const target = document.createElement('div');
   target.classList.add('banner');
 
-  function createButton() {
+  let el = (function() {
     const el = document.createElement('button');
     el.type = 'button';
     el.id = 'banner-btn';
@@ -12,9 +12,8 @@
       console.log('clicked', evt.target);
     });
     return el;
-  }
+  })();
 
   target.appendChild(el);
   document.body.appendChild(target);
-
 })();
