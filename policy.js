@@ -13,6 +13,7 @@ policies.set('send_pixel', true)
   .set('access_consent', true)
   .set('read_event_metadata', true)
   .set('write_data_layer', true)
+  .set('get_cookies', true)
   .set('unknown', true);  // for consent tags
 
 (function() {
