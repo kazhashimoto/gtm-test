@@ -9,3 +9,10 @@ body {
 section {
   min-height: 100vh;
 }
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: blue;
+}
