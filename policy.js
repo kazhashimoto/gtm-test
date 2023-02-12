@@ -14,6 +14,7 @@ policies.set('send_pixel', true)
   .set('read_event_metadata', true)
   .set('write_data_layer', true)
   .set('get_cookies', true)
+  .set('set_cookies', true)
   .set('unknown', false);
 
 (function() {
