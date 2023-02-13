@@ -17,11 +17,18 @@ policies.set('send_pixel', true)
   .set('set_cookies', true)
   .set('unknown', false);
 
+let debug_policy = false;
+const debug = function() {
+  if (debug_policy) {
+    console.log(...arguments);
+  }
+};
+
 (function() {
   let val;
   const params = new URL(document.location).searchParams;
   for (const key of policies.keys()) {
-    console.log(key, policies.get(key), params.get(key));
+    debug(key, policies.get(key), params.get(key));
     val = params.get(key);
     if (val) {
       policies.set(key, val == 'true');
@@ -31,10 +38,14 @@ policies.set('send_pixel', true)
   if (val && val == 'false') {
     gtag = function() {};
   }
+  val = params.get('debug_policy');
+  if (val && val == 'true') {
+    debug_policy = true;
+  }
 })();
 
 gtag('policy', 'inject_script', function(container, policy, data) {
-  console.log('gtag inject_script');
+  debug('gtag inject_script');
 
   // reference the url of the script to be injected
   let url = data.url || '';
@@ -64,7 +75,7 @@ gtag('policy', 'all', function(container, policy, data) {
   if (policies.has(policy)) {
     val = policies.get(policy);
   }
-  console.log('gtag policy', policy, val);
+  debug('gtag policy', policy, val);
   // Since the policy is 'all', adjust permissions conditionally.
   switch (policy) {
 
