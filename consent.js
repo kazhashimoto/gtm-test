@@ -16,7 +16,7 @@ window.addConsentListenerExample = (callback) => {
  * Called when user grants/denies consent.
  * @param {Object} Object containing user consent settings.
  */
-const onConsentChange = (consent) => {
+onConsentChange = (consent) => {
   consentListeners.forEach((callback) => {
     callback(consent);
   });
