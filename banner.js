@@ -18,8 +18,33 @@ const domString = `
 </div>
 `;
 
+const cssRules = [
+  '.banner { display: flex; justify-content: center; background: lightblue; padding: 20px 10px; }',
+  '.banner-inner { display: flex; max-width: 500px; }',
+  '.col1 { display: flex; margin: 0; }',
+  '.col1 > dt { white-space: nowrap; }',
+  '.col1 > dd { margin-left: 10px; }',
+  '.col1 label { display: inline-block; }',
+  '.col2 { margin-left: auto; }',
+  '@media (max-width: 500px) { .banner-inner { flex-direction: column; }}',
+  '@media (max-width: 500px) { .col1 { flex-direction: column; }}',
+  '@media (max-width: 500px) { .col2 { margin: 20px auto 0; }}'
+];
+
+const addCSS = function() {
+  let el = document.getElementById('banner-styles');
+  if (el) {
+    return;
+  }
+  el = document.createElement('style');
+  el.id = 'banner-styles';
+  el.textContent = cssRules.join(' ');
+  document.querySelector('head').appendChild(el);
+};
+
 (function() {
   console.log('### banner.js');
+  addCSS();
   let banner = document.createRange().createContextualFragment(domString);
   banner.querySelector('#ok-btn').addEventListener('click', (evt) => {
     console.log('click', evt.target);
