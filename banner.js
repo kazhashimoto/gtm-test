@@ -4,11 +4,11 @@ const domString = `
     <dl class="col1">
       <dt>Consent Types: </dt>
       <dd>
-        <label><input type="checkbox" id="cb1" value="adConsentGranted" class="cb">ad</label>
-        <label><input type="checkbox" id="cb2" value="analyticsConsentGranted" class="cb">analytics</label>
-        <label><input type="checkbox" id="cb3" value="functionalityConsentGranted" class="cb">functionality</label>
-        <label><input type="checkbox" id="cb4" value="personalizationConsentGranted" class="cb">personalization</label>
-        <label><input type="checkbox" id="cb5" value="securityConsentGranted" class="cb">security</label>
+        <label><input type="checkbox" value="adConsentGranted" class="cb">ad</label>
+        <label><input type="checkbox" value="analyticsConsentGranted" class="cb">analytics</label>
+        <label><input type="checkbox" value="functionalityConsentGranted" class="cb">functionality</label>
+        <label><input type="checkbox" value="personalizationConsentGranted" class="cb">personalization</label>
+        <label><input type="checkbox" value="securityConsentGranted" class="cb">security</label>
       </dd>
     </dl>
     <div class="col2">
