@@ -32,7 +32,7 @@ const cssRules = [
   `.${IDENT}-btn { color: #fff; font-size: 1rem; padding: 8px 16px; border-width: 0; border-radius: 5px; background: #3b5bdb; text-shadow: 0 1px 0 #364fc7; transition: all 0.2s; cursor: pointer; }`,
   `.${IDENT}-btn.active { color: #fff; background: #fff; }`,
   `@media (hover: hover) and (pointer: fine) { .${IDENT}-btn:hover { background: #4c6ef5; }}`,
-  `@media (max-width: 500px) { .${IDENT}-banner-inner { flex-direction: column; }}`,
+  `@media (max-width: 500px) { .${IDENT}-inner { flex-direction: column; }}`,
   `@media (max-width: 500px) { .${IDENT}-col1 { flex-direction: column; }}`,
   `@media (max-width: 500px) { .${IDENT}-col2 { margin: 20px auto 0; }}`
 ];
