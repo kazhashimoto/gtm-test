@@ -40,12 +40,12 @@
   ];
 
   (function addCSS() {
-    let el = document.getElementById('banner-styles');
+    let el = document.getElementById(`${IDENT}-styles`);
     if (el) {
       return;
     }
     el = document.createElement('style');
-    el.id = 'banner-styles';
+    el.id = `${IDENT}-styles`;
     el.textContent = cssRules.join(' ');
     document.querySelector('head').appendChild(el);
   })();
